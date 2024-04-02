@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --background-color: black;
+  --text-color: hsl(0, 0%, 100%);
+}
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+}
+body {
+  background-image: linear-gradient(to top, #018817 0%, #002700 100%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+}
+.headline {
+  display: grid;
+  place-content: center;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(1.5rem, 1rem + 4vw, 11rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-color);
+
+  &.top {
+    grid-area: 1/1/-1/-1;
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+  }
+
+  &.bottom {
+    grid-area: 1/1/-1/-1;
+    -webkit-clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+    color: rgba(0, 0, 0, 0);
+    background: linear-gradient(177deg, rgb(8, 43, 0) 53%, var(--text-color) 65%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    transform: translate3d(-0.02em, -1em, 0);
+  }
+}
+
+h3 {
+  text-align: center;
+  color: white;
+  font-size: clamp(1.5rem, 1rem + 1vw, 11rem);
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 3),
+  only screen and (min--moz-device-pixel-ratio: 3),
+  only screen and (-o-min-device-pixel-ratio: 3/1),
+  only screen and (min-device-pixel-ratio: 3) {
+  body .headline.bottom {
+    transform: translate3d(-0.02em, -39px, 0);
+  }
+}
